@@ -10,15 +10,29 @@ body{
     color: white;
     min-height: 100vh;
     font-family: 'Asul', sans-serif;
-
 }
 
 header{
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     clip-path: polygon(0%0%,100%0%,100%80%,0%100%);
     background: #53014b;
 }
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    height: 10%;
+    width: 100%;
+    overflow: hidden;
+}
 
+footer p{
+    padding: 3mm;
+    background-color: rgba(7, 1, 5, 0.555);
+    color: white;
+    text-align: center;
+}
+/*
 header h1{
     position: relative;
     animation-delay: 1s;
@@ -29,9 +43,11 @@ header h1{
     from {left: 0px;}
     to {left: 200px;}
   }
+*/
 
 header, form{
     min-height: 20vh;
+    min-width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,6 +55,7 @@ header, form{
 }
 
 form input, form button{
+    display: flex;
     padding: 0.5rem;
     border: none;
     font-size: 2rem;
@@ -58,10 +75,19 @@ form button:hover{
     background: white;
 }
 
+.todo-input{
+    min-width: 25%;
+    font-size: 23px;
+}
+
+
 .todo-container{
     display: flex;
+    min-height: 100%;
     justify-content: center;
     align-items: center;
+    padding-bottom: 100px;
+    margin-bottom: 100px;
 }
 
 .todo-list{
@@ -101,6 +127,7 @@ form button:hover{
 
 .todo-item{
     padding: 0rem 0.5rem;
+    display: flex;
 }
 
 .fa-trash, .fa-check{
@@ -111,15 +138,7 @@ form button:hover{
     text-decoration: line-through;
     opacity: 0.5;
 }
-footer{
-    position: fixed;
-    padding: 5mm;
-    width: 100%;
-    bottom: 0%;
-    background-color: rgba(7, 1, 5, 0.555);
-    color: white;
-    text-align: center;
-}
+
 
 .fall{
     transform: translateY(8rem) rotateZ(20deg);
@@ -146,6 +165,7 @@ select{
     width: 15rem;
     cursor: pointer;
     padding: 1rem;
+    transition: all 0.3s ease;
 
 }
 
@@ -156,13 +176,80 @@ select{
     background: purple;
     top: 0;
     right: 0;
-    padding: 1.15rem;
+    padding: 1.1rem;
     pointer-events: none;
-    transition: all 1sec ease ;
 }
 
 .select:hover::after{
     background: white;
     color: rgb(126, 26, 139);
-
 }
+
+.inputbar{
+    display: flex;
+    width: 20rem;
+}
+/*====================Mobile Device ====================*/
+@media screen and (max-width: 850px) {
+
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 5vh;
+    }
+    
+    .inputbar, .select{
+        font-optical-sizing: 5vh;
+        width: 60%;
+        height: 7vh;
+    }
+
+    .inputbar{
+        display: flex;
+        width: 15rem;
+        font-size: 1.2rem;
+
+    }
+
+    form input, form button{
+        display: flex;
+        padding: 0.5rem;
+        font-size: 2rem;
+    }
+
+    .todo li{
+        flex: 1;
+        font-size: 20px;
+    }
+
+    .todo{
+
+        padding: 0px;
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+    
+    .todo-container{
+        margin-bottom: 100px;
+    }
+    .todo-input{
+        flex: 1;
+        font-size: 1.2rem;
+    }
+    .select::after{
+        padding: 0.8rem;
+    }
+
+
+    .trash-btn, .complete-btn{
+    
+        padding: 0.7rem;
+        cursor: pointer;
+        font-size: 0.8rem;
+
+    }
+
+
+  }
